@@ -1,1 +1,1 @@
-# web-project-stuff
+# WEB DEVELOPMENT PROJECT
