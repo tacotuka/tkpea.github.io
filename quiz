@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Copilot Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>GitHub Copilot – Self-Assessment Quiz</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="topic1.html">How It Works</a>
+      <a href="topic2.html">AI’s Impact</a>
+      <a href="keyconcepts.html">Key Concepts</a>
+      <a href="references.html">References</a>
+      <a href="about.html">About</a>
+      <a href="quiz.html">Quiz</a>
+    </nav>
+  </header>
+
+  <main>
+    <form id="quizForm">
+      <h2>Test Your Knowledge!</h2>
+
+      <!-- 1️⃣ Fill in the blank -->
+      <div class="question">
+        <p><strong>1.</strong> Who developed GitHub Copilot? (Type your answer below)</p>
+        <input type="text" id="q1" placeholder="Your answer..." />
+      </div>
+
+      <!-- 2️⃣ Multiple choice questions -->
+      <div class="question">
+        <p><strong>2.</strong> What AI model powers GitHub Copilot?</p>
+        <label><input type="radio" name="q2" value="a" /> GPT-3</label><br />
+        <label><input type="radio" name="q2" value="b" /> Codex</label><br />
+        <label><input type="radio" name="q2" value="c" /> Gemini</label>
+      </div>
+
+      <div class="question">
+        <p><strong>3.</strong> Which company partnered with GitHub to create Copilot?</p>
+        <label><input type="radio" name="q3" value="a" /> Amazon</label><br />
+        <label><input type="radio" name="q3" value="b" /> Google</label><br />
+        <label><input type="radio" name="q3" value="c" /> OpenAI</label>
+      </div>
+
+      <div class="question">
+        <p><strong>4.</strong> What’s one benefit of using GitHub Copilot?</p>
+        <label><input type="radio" name="q4" value="a" /> Slows down coding</label><br />
+        <label><input type="radio" name="q4" value="b" /> Suggests helpful code snippets</label><br />
+        <label><input type="radio" name="q4" value="c" /> Deletes old code automatically</label>
+      </div>
+
+      <!-- 3️⃣ Multi-select -->
+      <div class="question">
+        <p><strong>5.</strong> Which of the following are AI-related technologies? (Select all that apply)</p>
+        <label><input type="checkbox" name="q5" value="a" /> Machine Learning</label><br />
+        <label><input type="checkbox" name="q5" value="b" /> Neural Networks</label><br />
+        <label><input type="checkbox" name="q5" value="c" /> HTML</label><br />
+        <label><input type="checkbox" name="q5" value="d" /> Natural Language Processing</label>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">Submit Quiz</button>
+      <button type="reset" id="resetBtn">Reset Quiz</button>
+
+      <div id="results"></div>
+    </form>
+  </main>
+
+  <footer>
+    <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT3203</a>.</p>
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+      let feedback = "";
+
+      // Answers
+      const answers = {
+        q1: "github and openai",
+        q2: "b",
+        q3: "c",
+        q4: "b",
+        q5: ["a", "b", "d"]
+      };
+
+      // Question 1
+      const q1 = document.getElementById("q1").value.trim().toLowerCase();
+      if (q1.includes("github") && q1.includes("openai")) {
+        score++;
+        feedback += "<p>1. ✅ Correct</p>";
+      } else {
+        feedback += "<p>1. ❌ Incorrect. Answer: GitHub and OpenAI.</p>";
+      }
+
+      // Questions 2–4 (radio)
+      for (let i = 2; i <= 4; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) {
+          if (selected.value === answers[`q${i}`]) {
+            score++;
+            feedback += `<p>${i}. ✅ Correct</p>`;
+          } else {
+            feedback += `<p>${i}. ❌ Incorrect.</p>`;
+          }
+        } else {
+          feedback += `<p>${i}. ❌ Not answered.</p>`;
+        }
+      }
+
+      // Question 5 (multi-select)
+      const selectedCheckboxes = [...document.querySelectorAll('input[name="q5"]:checked')].map(cb => cb.value);
+      const correctAnswers = answers.q5;
+      const isCorrect =
+        selectedCheckboxes.length === correctAnswers.length &&
+        selectedCheckboxes.every(v => correctAnswers.includes(v));
+
+      if (isCorrect) {
+        score++;
+        feedback += "<p>5. ✅ Correct</p>";
+      } else {
+        feedback += "<p>5. ❌ Incorrect. Correct answers: Machine Learning, Neural Networks, NLP.</p>";
+      }
+
+      // Result summary
+      const total = 5;
+      const percent = (score / total) * 100;
+      const pass = percent >= 60 ? "✅ Pass" : "❌ Fail";
+
+      document.getElementById("results").innerHTML = `
+        <h3>Your Score: ${score}/${total} (${percent.toFixed(0)}%) – ${pass}</h3>
+        <div class="feedback">${feedback}</div>
+      `;
+
+      document.getElementById("results").style.background = pass.includes("Pass") ? "#d9fcd9" : "#fdd9d9";
+      document.getElementById("results").style.padding = "15px";
+      document.getElementById("results").style.borderRadius = "10px";
+    }
+  </script>
+</body>
+</html>
