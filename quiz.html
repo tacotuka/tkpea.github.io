@@ -26,13 +26,13 @@
     <form id="quizForm">
       <h2>Test Your Knowledge!</h2>
 
-      <!-- 1️⃣ Fill in the blank -->
+      <!--Fill in the blank -->
       <div class="question">
-        <p><strong>1.</strong> Who developed GitHub Copilot? (Type your answer below)</p>
+        <p><strong>1.</strong> Who developed GitHub Copilot? (Type your answer below.)</p>
         <input type="text" id="q1" placeholder="Your answer..." />
       </div>
 
-      <!-- 2️⃣ Multiple choice questions -->
+      <!-- Multiple choice questions -->
       <div class="question">
         <p><strong>2.</strong> What AI model powers GitHub Copilot?</p>
         <label><input type="radio" name="q2" value="a" /> GPT-3</label><br />
@@ -54,7 +54,7 @@
         <label><input type="radio" name="q4" value="c" /> Deletes old code automatically</label>
       </div>
 
-      <!-- 3️⃣ Multi-select -->
+      <!-- Multi-select-->
       <div class="question">
         <p><strong>5.</strong> Which of the following are AI-related technologies? (Select all that apply)</p>
         <label><input type="checkbox" name="q5" value="a" /> Machine Learning</label><br />
@@ -98,7 +98,7 @@
         feedback += "<p>1. ❌ Incorrect. Answer: GitHub and OpenAI.</p>";
       }
 
-      // Questions 2–4 (radio)
+      // Questions 2–4 
       for (let i = 2; i <= 4; i++) {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
         if (selected) {
@@ -113,7 +113,7 @@
         }
       }
 
-      // Question 5 (multi-select)
+      // Question 5
       const selectedCheckboxes = [...document.querySelectorAll('input[name="q5"]:checked')].map(cb => cb.value);
       const correctAnswers = answers.q5;
       const isCorrect =
@@ -127,7 +127,7 @@
         feedback += "<p>5. ❌ Incorrect. Correct answers: Machine Learning, Neural Networks, NLP.</p>";
       }
 
-      // Result summary
+      // Quiz Results
       const total = 5;
       const percent = (score / total) * 100;
       const pass = percent >= 60 ? "✅ Pass" : "❌ Fail";
