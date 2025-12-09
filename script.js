@@ -1,39 +1,49 @@
- function checkAnswers() {
-      let score = 0;
-      let feedback = "";
+function checkAnswers(event) {
+    event.preventDefault();
 
-      // Answers
-      const answers = {
-        q1: "github and openai",
+    let score = 0;
+    let feedback = "";
+
+    const answers = {
+        q1: "ai pair programmer",
         q2: "b",
         q3: "c",
         q4: "b",
         q5: ["a", "b", "d"]
-      };
+    };
 
-      // Question 1
-      const q1 = document.getElementById("q1").value.trim().toLowerCase();
-      if (q1.includes("github") && q1.includes("openai")) {
-        score++;
-        feedback += "<p>1. ✅ Correct</p>";
-      } else {
-        feedback += "<p>1. ❌ Incorrect. Answer: GitHub and OpenAI.</p>";
-      }
-
-      // Questions 2–4 
-      for (let i = 2; i <= 4; i++) {
-        const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        if (selected) {
-          if (selected.value === answers[`q${i}`]) {
+    // Question 1
+    const q1Input = document.getElementById("q1");
+    if (q1Input) {
+        const userAnswer = q1Input.value.trim().toLowerCase();
+        if (userAnswer.includes("ai pair programmer")) {
             score++;
-            feedback += `<p>${i}. ✅ Correct</p>`;
-          } else {
-            feedback += `<p>${i}. ❌ Incorrect.</p>`;
-          }
+            feedback += "<p>1. ✅ Correct! Copilot is designed as an AI pair programmer.</p>";
+        } else if (userAnswer.length === 0) {
+            feedback += "<p>1. ❌ Not answered.</p>";
         } else {
-          feedback += `<p>${i}. ❌ Not answered.</p>`;
+            feedback += "<p>1. ❌ Incorrect. Copilot’s primary role is serving as an AI pair programmer.</p>";
         }
-      }
+    }
+
+    // Questions 2–4
+    for (let i = 2; i <= 4; i++) {
+        const name = "q" + i;
+        const correct = answers[name];
+        const selected = document.querySelector(`input[name="${name}"]:checked`);
+
+        if (!selected) {
+            feedback += `<p>${i}. ❌ Not answered.</p>`;
+            continue;
+        }
+
+        if (selected.value === correct) {
+            score++;
+            feedback += `<p>${i}. ✅ Correct.</p>`;
+        } else {
+            feedback += `<p>${i}. ❌ Incorrect.</p>`;
+        }
+    }
 
       // Question 5
       const selectedCheckboxes = [...document.querySelectorAll('input[name="q5"]:checked')].map(cb => cb.value);
