@@ -13,8 +13,8 @@
   <nav>
     <ul class="menu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="topic1.html">How It Works</a></li>
-      <li><a href="topic2.html">AI’s Impact</a></li>
+      <li><a href="topic1.html">How GitHub Copilot Works</a></li>
+      <li><a href="topic2.html">Impact of GitHub Copilot</a></li>
       <li><a href="keyconcepts.html">Key Concepts</a></li>
       <li><a href="references.html">References</a></li>
       <li><a href="about.html">About</a></li>
@@ -24,28 +24,81 @@
 
   </header>
   <main>
-    <h2>Understanding GitHub Copilot</h2>
-    <p>GitHub Copilot is powered by OpenAI’s Codex model, trained on billions of
-    lines of public code. It predicts the next lines or functions that a developer might
-    need based on context and comments written in the editor.</p>
+    <h1>How GitHub Copilot Works</h1>
 
-    <h3>How It Works</h3>
-  <ol>
-    <li><strong>Context Reading</strong> – Copilot analyzes your current code.</li>
-    <li><strong>Prediction</strong> – The AI model predicts the next lines.</li>
-    <li><strong>Suggestion</strong> – Suggestions appear directly in your IDE.</li>
-    <li><strong>Developer Control</strong> – You can accept or reject them.</li>
-  </ol>
-   
-    <h3>Examples by Language</h3>
-    <table>
-      <tr><th>Language</th><th>Example Use</th></tr>
-      <tr><td>JavaScript</td><td>Auto-generating functions and comments.</td></tr>
-      <tr><td>Python</td><td>Completing loops and API calls automatically.</td></tr>
-      <tr><td>HTML/CSS</td><td>Suggests layout or styling code</td></tr>
-    </table>
+    <section>
+        <h2>What Is GitHub Copilot?</h2>
+        <p>
+            GitHub Copilot is an AI-powered coding assistant integrated directly into popular development environments.
+            It analyzes the code you’re working on and generates context-aware suggestions ranging from small snippets
+            to complete functions. GitHub describes it as an “AI pair programmer” because it stays with you as you
+            work—offering ideas, speeding up repetitive tasks, and helping you overcome roadblocks without breaking
+            your focus.
+        </p>
+        <p>
+            Powered by advanced language models trained on natural language and billions of lines of publicly available
+            code, Copilot learns how real developers solve problems. Instead of copying specific code, it identifies
+            patterns and uses them to generate original suggestions tailored to your project. This makes Copilot
+            helpful for both beginners learning new concepts and experienced developers who want to work more efficiently.
+        </p>
+    </section>
 
-  </main>
+    <section>
+        <h2>How Copilot Works Under the Hood</h2>
+        <p>
+            Although Copilot feels simple to use, a lot happens behind the scenes. When you type in your editor,
+            Copilot sends a small, relevant slice of your code, called the <strong>context</strong>, to a large
+            language model hosted in the cloud. This model, based on technologies like OpenAI’s Codex and
+            Its successors predict what code is most likely to come next. The suggestions appear in real
+            time as “ghost text” that you can accept or modify.
+        </p>
+        <p>
+            Copilot’s decisions rely heavily on:
+        </p>
+        <ul>
+            <li>Your current file</li>
+            <li>Related code in other files</li>
+            <li>Comments, function names, and docstrings</li>
+            <li>Common patterns learned during training</li>
+        </ul>
+        <p>
+            Because of this, Copilot doesn't just autocomplete. It understands intent, adapts to surrounding code,
+            and often generates solutions that match your coding style. As newer models and larger context windows
+            are released, Copilot is becoming progressively more accurate and aware of the whole-project structure.
+        </p>
+    </section>
+
+    <section>
+        <h2>Where Copilot Can Be Used</h2>
+        <p>
+            GitHub Copilot integrates with many of today’s major development tools, including Visual Studio Code,
+            Visual Studio, JetBrains IDEs, Neovim, Eclipse, and even the GitHub website itself through Copilot Chat.
+            It also works in command-line environments with Copilot CLI, making it accessible for both traditional
+            and modern workflows.
+        </p>
+        <p>
+            Copilot supports dozens of programming languages, performing especially well in languages that dominate
+            public repositories—like JavaScript, TypeScript, Python, Go, and C++. Recent updates introduced features
+            such as Copilot Chat, which allows you to ask for explanations or request code changes conversationally,
+            and Copilot Agents, which can analyze tasks, modify multiple files, and propose pull requests.
+        </p>
+    </section>
+
+    <section>
+        <h2>Plans, Pricing, and Access</h2>
+        <p>
+            GitHub offers free and paid versions of Copilot. The free plan allows individuals to explore the tool
+            with limited inline suggestions and monthly usage caps. Paid tiers—like Copilot Pro and business plans—
+            unlock enhanced features, higher limits, and administrative controls for organizations.
+        </p>
+        <p>
+            Students and open-source contributors may qualify for free or discounted access through GitHub educational
+            programs. To use Copilot, you simply log in with your GitHub account, select your plan, and install the
+            extension for your preferred editor.
+        </p>
+    </section>
+</main>
+
   
   <footer>
     <p> IT3203 Class Project |
