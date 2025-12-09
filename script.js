@@ -1,5 +1,7 @@
 function checkAnswers(event) {
-    event.preventDefault();
+    if (event && event.preventDefault) {
+        event.preventDefault();
+    }
 
     let score = 0;
     let feedback = "";
