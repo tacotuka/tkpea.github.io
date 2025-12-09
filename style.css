@@ -57,3 +57,189 @@ button:hover {
   margin-top: 20px;
 }
 
+/* Base layout */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Make tables responsive */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  display: block;
+  overflow-x: auto; /* horizontal scroll on small screens */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+/* Quiz form layout */
+.quiz-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.quiz-container h2 {
+  margin-top: 0;
+}
+
+.quiz-question {
+  margin-bottom: 1.25rem;
+}
+
+.quiz-question label {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.quiz-question input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.quiz-question input[type="radio"],
+.quiz-question input[type="checkbox"] {
+  margin-right: 0.4rem;
+}
+
+/* Submit button */
+.quiz-submit {
+  padding: 0.7rem 1.4rem;
+  border: none;
+  background-color: #0073e6;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.quiz-submit:hover {
+  background-color: #005bb5;
+}
+
+#results {
+  margin-top: 1.5rem;
+}
+
+/* Navigation defaults (desktop) */
+header {
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.8rem;
+}
+
+nav {
+  background-color: #222;
+}
+
+.menu {
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  text-align: center;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 0 0.75rem;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+/* Medium screens: tablets, small laptops (~900px and down) */
+@media (max-width: 900px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .quiz-container {
+    padding: 1rem;
+  }
+
+  table {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small screens: phones (~600px and down) */
+@media (max-width: 600px) {
+  /* Stack menu items */
+  .menu li {
+    display: block;
+    margin: 0.4rem 0;
+  }
+
+  .menu {
+    text-align: left;
+    padding-left: 1.5rem;
+  }
+
+  header {
+    text-align: left;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+
+  body {
+    font-size: 0.95rem;
+  }
+
+  .quiz-container {
+    box-shadow: none; /* simpler on mobile */
+    border: 1px solid #ddd;
+  }
+
+  /* Form elements bigger for touch */
+  .quiz-question input[type="text"] {
+    padding: 0.6rem;
+  }
+
+  .quiz-submit {
+    width: 100%;
+    text-align: center;
+  }
+}
+
